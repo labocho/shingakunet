@@ -1,6 +1,7 @@
 = shingakunet
 
-Description goes here.
+Spec:
+http://webservice.recruit.co.jp/shingaku/reference-v2.html
 
 == Contributing to shingakunet
  
