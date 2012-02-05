@@ -12,12 +12,12 @@ end
 require 'rake'
 
 require 'jeweler'
-require "#{File.dirname(__FILE__)}/../lib/shingakunet/version"
+require "#{File.dirname(__FILE__)}/lib/shingakunet/version"
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "shingakunet"
   gem.homepage = "http://github.com/labocho/shingakunet"
-  gem.version = Shingakunet::VERSION::STRING
+  gem.version = Shingakunet::Version::STRING
   gem.license = "MIT"
   gem.summary = %Q{shinagakunet.com API wrapper}
   gem.description = %Q{shinagakunet.com API wrapper}
