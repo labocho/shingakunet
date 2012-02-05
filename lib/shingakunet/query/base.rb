@@ -29,12 +29,20 @@ module Shingakunet
       end
 
       def self.define_parameter_accessors
+        define_method :[] do |key|
+          parameters[key]
+        end
+
+        define_method :[]= do |key, value|
+          parameters[key] = value
+        end
+
         @keys.each do |k|
           define_method k do
-            parameters[k]
+            self[k]
           end
           define_method "#{k}=" do |val|
-            parameters[k] = val
+            self[k] = val
           end
         end
       end

@@ -12,10 +12,24 @@ module Shingakunet
           errors.add(:code, ", area, pref, category, keyword, subject, work, and license are blank")
         end
       end
-
-      # 複数指定の validation ができないため保留
-      # validates :pref, format: {with: /\A\d{2}\z/, allow_nil: true}
-      # validates :category, format: {with: /\A\d{4}\z/, allow_nil: true}
+      validate do
+        if pref
+          [pref].flatten.each do |e|
+            unless e =~ /\A\d{2}\z/
+              errors.add(:pref, :invalid)
+            end
+          end
+        end
+      end
+      validate do
+        if category
+          [category].flatten.each do |e|
+            unless e =~ /\A\d{4}\z/
+              errors.add(:category, :invalid)
+            end
+          end
+        end
+      end
       validates :datum, inclusion: {in: ["world", "tokyo", :world, :tokyo], allow_nil: true}
       validates :order, numericality: {only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 3, allow_nil: true}
       validates :start, numericality: {only_integer: true, greater_than: 0, allow_nil: true}
